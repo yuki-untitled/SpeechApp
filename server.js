@@ -3,10 +3,14 @@ const cors = require("cors");
 const kuromoji = require("kuromoji");
 const werScorer = require("word-error-rate");
 const bleuScorer = require("bleu-score");
+const path = require("path");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+// 静的ファイル配信
+app.use(express.static(path.join(__dirname)));
 
 let tokenizer;
 
@@ -46,6 +50,7 @@ app.post("/analyze", (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log("Server listening on port 3000");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
 });
