@@ -53,7 +53,7 @@ btn.addEventListener("click", function() {
 // 🔍 誤認識率の計算
 const sd = document.getElementById("sendButton");
 const sendForAnalysis = (text1, text2) => {
-  fetch("http://localhost:3000/analyze", {
+  fetch("/analyze", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ text1, text2 })
