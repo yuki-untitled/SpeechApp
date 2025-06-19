@@ -84,6 +84,15 @@
     <div id="logArea"></div>
   </div>
 
+  <div>
+    <button id="toggleManualInput">手動入力モードに切り替え</button>
+  </div>
+  <div id="manualInputArea" style="display: none; margin-top: 10px;">
+    <label>正解文: <input type="text" id="manualCorrect" style="width: 80%;"></label><br>
+    <label>比較文: <input type="text" id="manualCompare" style="width: 80%;"></label><br>
+    <button id="manualSendButton">手動で誤認識率を計算</button>
+  </div>
+
   <script src="script.js"></script>
 </body>
 

@@ -80,3 +80,22 @@ sd.addEventListener("click", function () {
   // ここで関数に投げる！
   sendForAnalysis(inputText, recognizedText);
 });
+
+// 手動入力切り替え
+const toggleBtn = document.getElementById("toggleManualInput");
+const manualArea = document.getElementById("manualInputArea");
+let manualMode = false;
+
+toggleBtn.addEventListener("click", function() {
+  manualMode = !manualMode;
+  manualArea.style.display = manualMode ? "block" : "none";
+  toggleBtn.textContent = manualMode ? "通常モードに戻す" : "手動入力モードに切り替え";
+});
+
+// 手動入力で誤認識率計算
+const manualSendBtn = document.getElementById("manualSendButton");
+manualSendBtn.addEventListener("click", function() {
+  const correct = document.getElementById("manualCorrect").value;
+  const compare = document.getElementById("manualCompare").value;
+  sendForAnalysis(correct, compare);
+});
